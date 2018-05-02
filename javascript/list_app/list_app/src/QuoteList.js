@@ -5,8 +5,17 @@ class QuoteList extends React.Component {
   constructor() {
   super();
     this.state = {
-      quotes: []
+      quotes: [],
+      currentPage: 1,
+      quotesPerPage: 15
     };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    this.setState({
+      currentPage: Number(e.target.id)
+    });
   }
 
   componentDidMount() {
@@ -19,7 +28,30 @@ class QuoteList extends React.Component {
   }
 
   render() {
-    console.log('state', this.state.quotes);
+    const { quotes, currentPage, quotesPerPage } = this.state;
+      // console.log(currentPage, quotesPerPage);
+
+    const firstOfNextPage = currentPage * quotesPerPage;
+      // console.log(indexOfLastQuote);
+
+    const indexOfFirstQuote = firstOfNextPage - quotesPerPage;
+    // console.log(indexOfFirstQuote);
+
+    const currentQuotes = quotes.slice(indexOfFirstQuote, firstOfNextPage);
+    // console.log(currentQuotes);
+
+    const renderQuotes = currentQuotes.map((quote, index) => {
+        return (
+          <tr key={index} >
+            <td>{quote.source}</td>
+            <td>{quote.context}</td>
+            <td>{quote.quote}</td>
+            <td>{quote.theme}</td>
+          </tr>
+
+        );
+        });
+    // console.log('state', this.state.quotes);
     return (
       <table id='pages' style={{"width":"100%"}}>
         <thead>
@@ -31,14 +63,7 @@ class QuoteList extends React.Component {
           </tr>
         </thead>
         <tbody>
-        {this.state.quotes.map(quote => (
-          <tr>
-            <td>{quote.source}</td>
-            <td>{quote.context}</td>
-            <td>{quote.quote}</td>
-            <td>{quote.theme}</td>
-          </tr>
-        ))}
+          { renderQuotes }
         </tbody>
       </table>
     )
