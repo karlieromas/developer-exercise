@@ -26,3 +26,27 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+table, td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+table {
+  background-color: #024e56;
+}
+
+th {
+  font-family: helvetica;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+}
+
+td {
+  background-color: #1deef9;
+}
+
+td {
+  color:  #024e56;
+}

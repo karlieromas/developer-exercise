@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 class QuoteList extends React.Component {
 
@@ -21,7 +21,7 @@ class QuoteList extends React.Component {
   render() {
     console.log('state', this.state.quotes);
     return (
-      <table style={{"width":"100%"}}>
+      <table id='pages' style={{"width":"100%"}}>
         <thead>
           <tr>
             <th>Source</th>
