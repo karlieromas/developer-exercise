@@ -31,16 +31,16 @@ class QuoteList extends React.Component {
     const { quotes, currentPage, quotesPerPage } = this.state;
       // console.log(currentPage, quotesPerPage);
 
-    const firstOfNextPage = currentPage * quotesPerPage;
+    const firstQuoteOfNextPage = currentPage * quotesPerPage;
       // console.log(indexOfLastQuote);
 
-    const indexOfFirstQuote = firstOfNextPage - quotesPerPage;
+    const indexOfFirstQuote = firstQuoteOfNextPage - quotesPerPage;
     // console.log(indexOfFirstQuote);
 
-    const currentQuotes = quotes.slice(indexOfFirstQuote, firstOfNextPage);
+    const currentQuotesOnPage = quotes.slice(indexOfFirstQuote, firstQuoteOfNextPage);
     // console.log(currentQuotes);
 
-    const renderQuotes = currentQuotes.map((quote, index) => {
+    const renderQuotes = currentQuotesOnPage.map((quote, index) => {
         return (
           <tr key={index} >
             <td>{quote.source}</td>
