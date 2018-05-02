@@ -50,3 +50,16 @@ td {
 td {
   color:  #024e56;
 }
+
+#page-numbers {
+  list-style: none;
+  display: flex;
+}
+
+#page-numbers > li {
+  color: white;
+  user-select: none;
+  cursor: pointer;
+  margin: auto;
+  width: 50%;
+}

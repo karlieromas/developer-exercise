@@ -50,8 +50,26 @@ class QuoteList extends React.Component {
           </tr>
 
         );
-        });
-    // console.log('state', this.state.quotes);
+      });
+
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(quotes.length / quotesPerPage);
+      i++) {
+            pageNumbers.push(i);
+          }
+
+    const renderPageNumbers = pageNumbers.map(number => {
+      return (
+        <li
+          key={number}
+          id={number}
+          onClick={this.handleClick}
+          >
+          {number}
+        </li>
+        );
+    });
+
     return (
       <table id='pages' style={{"width":"100%"}}>
         <thead>
@@ -64,6 +82,9 @@ class QuoteList extends React.Component {
         </thead>
         <tbody>
           { renderQuotes }
+          <ul id='page-numbers'>
+            { renderPageNumbers }
+          </ul>
         </tbody>
       </table>
     )
