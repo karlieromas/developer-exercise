@@ -27,35 +27,25 @@
   to { transform: rotate(360deg); }
 }
 
-table, td {
-  border: 1px solid black;
+table table-striped table-dark {
+  border: 1px solid white;
   padding: 8px;
-}
+  font-size: 14px
 
-table {
-  background-color: #807884;
-}
-
-th {
-  font-family: helvetica;
-  font-weight: bold;
-  font-size: 20px;
-  color: white;
-  height: 75px;
-}
-
-td {
-  background-color: #c5a0d8;
-}
-
-td {
-  color:  white;
 }
 
 .header-row {
-  text-align: center;
-  font-family: 'Luckiest Guy', cursive;
+  font-size: 22px;
+  font-family: 'Titan One', cursive;
+  letter-spacing: 1em;
+  color: #fff47c ;
+  justify-content: center;
 }
+
+.body-text {
+  font-family: 'Fjalla One', sans-serif;
+}
+
 
 #page-numbers {
   list-style: none;

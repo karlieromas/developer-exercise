@@ -72,18 +72,17 @@ class QuoteList extends React.Component {
 
     return (
     	<div>
-	      <table  style={{"width":"100%"}}>
+	      <table className="table table-striped table-dark"  style={{"width":"100%"}}>
 	        <thead>
-	          <tr className='header-row'>
+	          <tr className="header-row">
 	            <th>SOURCE</th>
 	            <th>CONTEXT</th>
 	            <th>QUOTE</th>
 	            <th>THEME</th>
 	          </tr>
 	        </thead>
-	        <tbody>
+	        <tbody className="body-text">
 	          { renderQuotes }
-
 	        </tbody>
 	      </table>
 	      <ul id='page-numbers'>
