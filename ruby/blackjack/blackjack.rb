@@ -41,6 +41,14 @@ class Deck
       end
     end
   end
+
+  def deal_player
+    @cards_dealt = []
+    @cards_dealt << deal_card
+    @cards_dealt << deal_card
+    @cards_dealt
+  end
+
 end
 
 class Hand
@@ -49,7 +57,10 @@ class Hand
   def initialize
     @cards = []
   end
+
+
 end
+
 
 require 'test/unit'
 
@@ -73,6 +84,7 @@ end
 class DeckTest < Test::Unit::TestCase
   def setup
     @deck = Deck.new
+    @hand = Hand.new
   end
 
   def test_new_deck_has_52_playable_cards
@@ -88,4 +100,19 @@ class DeckTest < Test::Unit::TestCase
     @deck.shuffle
     assert_equal @deck.playable_cards.size, 52
   end
+
+  def test_player_dealt_two_cards
+    @hand.cards = @deck.deal_player
+    assert_equal @hand.cards.count, 2
+  end
+end
+
+class HandTest < Test::Unit::TestCase
+
+  def setup
+    @hand = Hand.new
+    @deck = Deck.new
+  end
+
+
 end
