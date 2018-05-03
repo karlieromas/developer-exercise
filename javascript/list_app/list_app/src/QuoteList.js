@@ -85,8 +85,9 @@ class QuoteList extends React.Component {
 	          { renderQuotes }
 	        </tbody>
 	      </table>
-	      <ul id='page-numbers'>
-	            { renderPageNumbers }
+
+	      <ul className="d-flex justify-content-center" id="page-numbers">
+	         { renderPageNumbers }
 	      </ul>
         </div>
     )

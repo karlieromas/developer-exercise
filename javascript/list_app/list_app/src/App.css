@@ -43,7 +43,9 @@ table table-striped table-dark {
 }
 
 .body-text {
-  font-family: 'Fjalla One', sans-serif;
+  font-family: 'Concert One', cursive;
+  font-size: 18px;
+  letter-spacing: .2em;
 }
 
 
@@ -55,11 +57,18 @@ table table-striped table-dark {
   width: 100px;
 }
 
-#page-numbers > li {
-  /*color: white;*/
+#page-numbers > li  {
   user-select: none;
   cursor: pointer;
   margin: auto;
-  width: 50%;
-
+  width: 100%;
+  color: #fff47c ;
+  font-size: 22px;
+  font-family: 'Titan One', cursive;
+  letter-spacing: 1.2em;
 }
+
+body {
+  background-color: #212529 !important;
+}
+
