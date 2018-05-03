@@ -62,10 +62,11 @@ td {
   display: flex;
   font-family: helvetica;
   font-weight: bold;
+  width: 100px;
 }
 
 #page-numbers > li {
-  color: white;
+  /*color: white;*/
   user-select: none;
   cursor: pointer;
   margin: auto;
