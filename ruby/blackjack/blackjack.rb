@@ -43,10 +43,17 @@ class Deck
   end
 
   def deal_player
-    @cards_dealt = []
-    @cards_dealt << deal_card
-    @cards_dealt << deal_card
-    @cards_dealt
+    @cards_dealt_to_player = []
+    @cards_dealt_to_player << deal_card
+    @cards_dealt_to_player << deal_card
+    @cards_dealt_to_player
+  end
+
+  def deal_dealer
+    @cards_dealt_to_dealer = []
+    @cards_dealt_to_dealer << deal_card
+    @cards_dealt_to_dealer << deal_card
+    @cards_dealt_to_dealer
   end
 
 end
@@ -56,6 +63,19 @@ class Hand
 
   def initialize
     @cards = []
+  end
+
+  def player_deal_count
+    deal_player
+    # have to map through the cards array (which is an array of card objects) and get the value and add the 2 value together. if over 21, bust, if equals 21, win!
+    card_value_total = @cards.map { |card| card[:value] }.reduce(:+)
+    if card_value_total > 21
+      puts 'player bust'
+    elsif card_value_total == 21
+      puts 'blackjack!'
+    else
+      @cards
+    end
   end
 
 
@@ -105,6 +125,11 @@ class DeckTest < Test::Unit::TestCase
     @hand.cards = @deck.deal_player
     assert_equal @hand.cards.count, 2
   end
+
+  def test_dealer_dealt_two_cards
+    @hand.cards = @deck.deal_dealer
+    assert_equal @hand.cards.count, 2
+  end
 end
 
 class HandTest < Test::Unit::TestCase
@@ -113,6 +138,10 @@ class HandTest < Test::Unit::TestCase
     @hand = Hand.new
     @deck = Deck.new
   end
+
+  # def test_player_deal_count
+  #   @hand.cards
+  # end
 
 
 end
