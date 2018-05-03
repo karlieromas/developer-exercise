@@ -22,17 +22,17 @@ class Deck
     :jack  => 10,
     :queen => 10,
     :king  => 10,
-    :ace   => [11, 1]}
+  :ace   => [11, 1]}
 
   def initialize
     shuffle
   end
-
+  # card that i am dealt is now removed from the deck
   def deal_card
     random = rand(@playable_cards.size)
     @playable_cards.delete_at(random)
   end
-
+  # shuffles all of the possible cards and shoves them into the playable cards array. once it's shuffled i am dealt a card (dear_card method) and it is removed from that playable cards array
   def shuffle
     @playable_cards = []
     SUITES.each do |suite|
@@ -57,7 +57,7 @@ class CardTest < Test::Unit::TestCase
   def setup
     @card = Card.new(:hearts, :ten, 10)
   end
-  
+
   def test_card_suite_is_correct
     assert_equal @card.suite, :hearts
   end
@@ -74,14 +74,14 @@ class DeckTest < Test::Unit::TestCase
   def setup
     @deck = Deck.new
   end
-  
+
   def test_new_deck_has_52_playable_cards
     assert_equal @deck.playable_cards.size, 52
   end
-  
+
   def test_dealt_card_should_not_be_included_in_playable_cards
     card = @deck.deal_card
-    assert(@deck.playable_cards.include?(card))
+    assert_equal(@deck.playable_cards.include?(card), false)
   end
 
   def test_shuffled_deck_has_52_playable_cards
