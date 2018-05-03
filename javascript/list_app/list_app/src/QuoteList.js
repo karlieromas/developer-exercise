@@ -71,13 +71,13 @@ class QuoteList extends React.Component {
     });
 
     return (
-      <table id='pages' style={{"width":"100%"}}>
+      <table style={{"width":"100%"}}>
         <thead>
-          <tr>
-            <th>Source</th>
-            <th>Context</th>
-            <th>Quote</th>
-            <th>Theme</th>
+          <tr className='header-row'>
+            <th>SOURCE</th>
+            <th>CONTEXT</th>
+            <th>QUOTE</th>
+            <th>THEME</th>
           </tr>
         </thead>
         <tbody>

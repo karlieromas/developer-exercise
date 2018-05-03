@@ -33,7 +33,7 @@ table, td {
 }
 
 table {
-  background-color: #024e56;
+  background-color: #807884;
 }
 
 th {
@@ -41,19 +41,27 @@ th {
   font-weight: bold;
   font-size: 20px;
   color: white;
+  height: 75px;
 }
 
 td {
-  background-color: #1deef9;
+  background-color: #c5a0d8;
 }
 
 td {
-  color:  #024e56;
+  color:  white;
+}
+
+.header-row {
+  text-align: center;
+  font-family: 'Luckiest Guy', cursive;
 }
 
 #page-numbers {
   list-style: none;
   display: flex;
+  font-family: helvetica;
+  font-weight: bold;
 }
 
 #page-numbers > li {
@@ -62,4 +70,5 @@ td {
   cursor: pointer;
   margin: auto;
   width: 50%;
+
 }
