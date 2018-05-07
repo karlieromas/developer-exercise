@@ -1,0 +1,99 @@
+- player
+  - state:
+    - has a "hand"
+  - behavior:
+    - hit
+    - stay
+    - look at what dealer has
+    - look at your own total
+- dealer
+  - state:
+    - has a "hand"
+    - has a "deck of cards"
+  - behavior:
+    - get face up card value
+    - deal player
+    - deal himself
+    - hit
+    - stay
+    - look at their total
+    - look at players total
+- deck of cards
+  - state:
+    - cards
+  - behavior:
+    - deal a card
+    - shuffle
+- hand
+  - state:
+    - how many cards?
+    - total of their cards?
+  - behavior:
+    -
+class Card
+end
+
+class DeckOfCards
+  def initialize(cards)
+    @cards = cards
+  end
+
+  def shuffle
+  end
+
+  def draw
+    # take one card out of deck and return it
+  end
+end
+
+class Dealer
+
+   def initialize
+    @deck_of_cards = DeckOfCards.new
+    @hand = Hand.new
+    @player = Player.new
+   end
+
+   def face_up_value
+     @hand.cards[1]
+   end
+
+   def deal_player
+    @player.hand << @deck_of_cards.draw
+   end
+
+   def deal_self
+    @hand << @deck_of_cards.draw
+   end
+
+   def hit_self
+     deal_self
+   end
+
+   def total_self
+    @hand.cards.map { |c| c[:value] }.reduce(:+)
+   end
+
+
+ - get face up card value
+    - deal player
+    - deal himself
+    - hit
+    - stay
+    - look at their total
+    - look at players total
+
+end
+
+class Player
+  def initialize
+    @hand = Hand.new
+  end
+end
+
+class Hand
+  attr_accessor :cards
+  def initialize
+    @cards = []
+  end
+end
